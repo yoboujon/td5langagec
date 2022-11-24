@@ -6,18 +6,17 @@
 int getNbLines(FILE * readFile);
 int EcritFichier(FILE * fich_lect, char * nom_fich_ecrit, int nb_lignes);
 
-int main(void)
+int main(int argc, char * argv[])
 {
+    argc--;
     FILE * f;
-    char fileReadName[100],fileWriteName[100];
+    if(argc!=2)
+    {
+        printf("Il faut 2 arguments.");
+    }
 
-    printf("Entrez le nom du fichier à lire :\n");
-    scanf("%s",fileReadName);
-    printf("Entrez le nom du fichier à écrire :\n");
-    scanf("%s",fileWriteName);
-
-    f = fopen (fileReadName,"r");
-    EcritFichier(f,fileWriteName,3);
+    f = fopen (argv[1],"r");
+    EcritFichier(f,argv[2],5);
     fclose(f);
     return 0;
 }
