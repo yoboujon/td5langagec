@@ -9,8 +9,14 @@ int EcritFichier(FILE * fich_lect, char * nom_fich_ecrit, int nb_lignes);
 int main(void)
 {
     FILE * f;
-    f = fopen ("text.txt","r");
-    EcritFichier(f,"out.txt",3);
+    char fileReadName[100],fileWriteName[100];
+    
+    printf("Entrez le nom du fichier à lire :\n");
+    scanf("%s",fileReadName);
+    printf("Entrez le nom du fichier à écrire :\n");
+    scanf("%s",fileWriteName);
+    f = fopen (fileReadName,"r");
+    EcritFichier(f,fileWriteName,3);
     fclose(f);
     return 0;
 }
